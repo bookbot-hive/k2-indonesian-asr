@@ -108,7 +108,6 @@ def recognize_audio_from_mic(
     transcript = streaming_recognizer.text
     if transcript:
         state = transcript
-        print(transcript)
     return state, state
 
 
@@ -185,13 +184,17 @@ with gr.Blocks() as demo:
             outputs=[mic_text_output, state],
             show_progress=False,
         )
-        # with gr.Row():
-        #     file_clear_button = gr.ClearButton(
-        #         components=[mic_text_output, state]
-        #     ).click(
-        #         initialize_streaming_recognizer,
-        #         inputs=[model_dropdown, decoding_method_radio],
-        #     )
+        with gr.Row():
+            file_clear_button = gr.ClearButton(
+                components=[mic_text_output, state]
+            ).click(
+                get_pretrained_model,
+                inputs=[
+                    model_dropdown.value,
+                    decoding_method_radio.value,
+                    num_active_paths_slider.value,
+                ],
+            )
 
     upload_button.click(
         process_uploaded_file,
