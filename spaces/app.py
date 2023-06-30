@@ -12,7 +12,9 @@ from huggingface_hub import Repository
 AUTH_TOKEN = os.getenv("AUTH_TOKEN")
 
 language_to_models = {
-    "id": ["bookbot/sherpa-ncnn-pruned-transducer-stateless7-streaming-id"],
+    "id": [
+        "bookbot/sherpa-ncnn-pruned-transducer-stateless7-streaming-id",
+    ],
 }
 
 language_choices = list(language_to_models.keys())
@@ -53,6 +55,15 @@ def recognize(
         recognized_text = transcript
 
     return recognized_text
+
+
+def initialize_streaming_model(
+    repo_id: str, decoding_method: str, num_active_paths: int
+):
+    streaming_recognizer = get_pretrained_model(
+        repo_id, decoding_method, num_active_paths
+    )
+    print("Re-intialized model!")
 
 
 @lru_cache(maxsize=10)
@@ -171,6 +182,15 @@ with gr.Blocks() as demo:
             )
             print("Model initialized!")
 
+        model_dropdown.change(
+            fn=initialize_streaming_model,
+            inputs=[
+                model_dropdown,
+                decoding_method_radio,
+                num_active_paths_slider,
+            ],
+        )
+
         state = gr.State(value="")
         mic_input_audio = gr.Audio(
             source="microphone",
@@ -187,14 +207,7 @@ with gr.Blocks() as demo:
         with gr.Row():
             file_clear_button = gr.ClearButton(
                 components=[mic_text_output, state]
-            ).click(
-                get_pretrained_model,
-                inputs=[
-                    model_dropdown,
-                    decoding_method_radio,
-                    num_active_paths_slider,
-                ],
-            )
+            ).click(streaming_recognizer.reset)
 
     upload_button.click(
         process_uploaded_file,
