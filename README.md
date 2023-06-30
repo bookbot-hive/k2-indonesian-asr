@@ -10,7 +10,7 @@
     <a href="https://discord.gg/gqwTPyPxa6">
         <img alt="chat on Discord" src="https://img.shields.io/discord/1001447685645148169?logo=discord">
     </a>
-    <a href="(#)">
+    <a href="https://huggingface.co/spaces/bookbot/k2-indonesian-asr">
         <img alt="HuggingFace Space" src="https://huggingface.co/datasets/huggingface/badges/raw/main/open-in-hf-spaces-sm-dark.svg">
     </a>
 </p>
@@ -70,7 +70,7 @@ We will provide a few external links to [Sherpa](https://k2-fsa.github.io/sherpa
 
 ## Example: Recognize a File (Python - Sherpa NCNN)
 
-The following code is adapted from [this example](https://k2-fsa.github.io/sherpa/ncnn/python/index.html#recognize-a-file). View this example running in our [live demo](#)!
+The following code is adapted from [this example](https://k2-fsa.github.io/sherpa/ncnn/python/index.html#recognize-a-file). View this example running in our [live demo](https://huggingface.co/spaces/bookbot/k2-indonesian-asr)!
 
 ```py
 import wave
@@ -116,7 +116,7 @@ def main():
 
 ## Example: Real-time Recognition with a Microphone (Python - Sherpa NCNN)
 
-The following code is adapted from [this example](https://k2-fsa.github.io/sherpa/ncnn/python/index.html#real-time-recognition-with-a-microphone). View this example running in our [live demo](#)!
+The following code is adapted from [this example](https://k2-fsa.github.io/sherpa/ncnn/python/index.html#real-time-recognition-with-a-microphone). View this example running in our [live demo](https://huggingface.co/spaces/bookbot/k2-indonesian-asr)!
 
 ```py
 import sys
