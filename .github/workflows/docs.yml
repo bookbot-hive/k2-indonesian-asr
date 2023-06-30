@@ -1,0 +1,22 @@
+name: Deploy docs to Github Pages
+
+on:
+  push:
+    branches:
+      - main
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout master branch
+        uses: actions/checkout@v2
+      - name: Setup Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.8
+      - name: Install dependencies
+        run: pip install mkdocs-material mkdocstrings mkdocstrings-python-legacy
+      - name: Install package
+        run: pip install .
+      - name: Deploy docs
+        run: mkdocs gh-deploy --force
