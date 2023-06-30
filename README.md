@@ -1,5 +1,20 @@
 # Kaldi 2.0 Indonesian ASR
 
+<p align="center">
+    <a href="https://github.com/bookbot-hive/k2-indonesian-asr/blob/main/LICENSE">
+        <img alt="GitHub" src="https://img.shields.io/github/license/bookbot-hive/k2-indonesian-asr.svg?color=blue">
+    </a>
+    <a href="https://github.com/bookbot-hive/k2-indonesian-asr/blob/main/CODE_OF_CONDUCT.md">
+        <img alt="Contributor Covenant" src="https://img.shields.io/badge/Contributor%20Covenant-v2.0%20adopted-ff69b4.svg">
+    </a>
+    <a href="https://discord.gg/gqwTPyPxa6">
+        <img alt="chat on Discord" src="https://img.shields.io/discord/1001447685645148169?logo=discord">
+    </a>
+    <a href="(#)">
+        <img alt="HuggingFace Space" src="https://huggingface.co/datasets/huggingface/badges/raw/main/open-in-hf-spaces-sm-dark.svg">
+    </a>
+</p>
+
 Indonesian speech/phoneme recognizer powered by Kaldi 2.0 (lhotse, icefall, sherpa). Trained on open source speech data. Deployable on Desktop (via Python/C++), web apps, iOS, and Android.
 
 All models released here are trained on [icefall](https://github.com/bookbot-hive/icefall) (which runs on PyTorch) and are converted for deployment via [sherpa-ncnn](https://github.com/k2-fsa/sherpa-ncnn). Icefall is Kaldi 2.0 / Next-Gen Kaldi, and unifies the application of [k2](https://github.com/k2-fsa/k2) for finite state automata (FSA) and [lhotse](https://github.com/bookbot-hive/lhotse) (audio data-loading).
@@ -39,9 +54,9 @@ Moreover, LibriVox Indonesia's original annotation is written with old Indonesia
 
 ## Usage
 
-There are v[arious ways to export and deploy](https://icefall.readthedocs.io/en/latest/model-export/index.html) these models for production. Sherpa (Kaldi 2.0's main deployment framework) also has various counterparts for running on NCNN and/or ONNX engines. Or, you can also directly use these models via icefall, but they require a working PyTorch installation and is unoptimized for production.
+There are [various ways to export and deploy](https://icefall.readthedocs.io/en/latest/model-export/index.html) these models for production. Sherpa (Kaldi 2.0's main deployment framework) also has various counterparts for running on NCNN and/or ONNX engines. Or, you can also directly use these models via icefall, but they require a working PyTorch installation and is unoptimized for production.
 
-We will provide a few external links to [Sherpa](https://k2-fsa.github.io/sherpa/index.html)'s thorough documentation which you can follow. We will also provide usage examples for [Real-time recognition with a microphone](#) and [Recognize a file](#) in Python.
+We will provide a few external links to [Sherpa](https://k2-fsa.github.io/sherpa/index.html)'s thorough documentation which you can follow. We will also provide usage examples for [Recognize a file](#example-recognize-a-file-python---sherpa-ncnn) and [Real-time recognition with a microphone](#example-real-time-recognition-with-a-microphone-python---sherpa-ncnn) in Python.
 
 | Inference Framework | Platform | Language | Link                                                                 |
 | ------------------- | -------- | -------- | -------------------------------------------------------------------- |
