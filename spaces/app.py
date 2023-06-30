@@ -72,7 +72,7 @@ def get_pretrained_model(repo_id: str, decoding_method: str, num_active_paths: i
         decoder_bin=str(model_name / "decoder_jit_trace-pnnx.ncnn.bin"),
         joiner_param=str(model_name / "joiner_jit_trace-pnnx.ncnn.param"),
         joiner_bin=str(model_name / "joiner_jit_trace-pnnx.ncnn.bin"),
-        num_threads=8,
+        num_threads=os.cpu_count(),
         decoding_method=decoding_method,
         num_active_paths=num_active_paths,
         enable_endpoint_detection=True,
@@ -190,9 +190,9 @@ with gr.Blocks() as demo:
             ).click(
                 get_pretrained_model,
                 inputs=[
-                    model_dropdown.value,
-                    decoding_method_radio.value,
-                    num_active_paths_slider.value,
+                    model_dropdown,
+                    decoding_method_radio,
+                    num_active_paths_slider,
                 ],
             )
 
